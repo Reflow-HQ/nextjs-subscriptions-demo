@@ -58,6 +58,7 @@ export async function fetchSubscriptionPlans(): Promise<Plan[]> {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: "force-cache",
     });
 
     const body = await result.json();

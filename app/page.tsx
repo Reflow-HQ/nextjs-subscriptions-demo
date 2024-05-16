@@ -6,11 +6,11 @@ import PricingTable from "./components/PricingTable";
 import SubscriberOnlyButton from "./components/SubscriberOnlyButton";
 
 export default async function Home() {
+  const plans = await fetchSubscriptionPlans();
+
   const auth = getAuth();
   const user = await auth.user();
   const subscription = await auth.subscription();
-
-  const plans = await fetchSubscriptionPlans();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-6 lg:p-24">
