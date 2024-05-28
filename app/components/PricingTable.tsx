@@ -1,9 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Plan } from "@/lib";
 import { createSubscription } from "@reflowhq/auth-next/client";
 
 export default ({ plans }: { plans: Plan[] }) => {
+  const router = useRouter();
+
   return (
     <div className="container mx-auto mt-8 max-w-xl px-6">
       <div className="flex flex-col justify-center gap-6 md:flex-row">
@@ -33,7 +36,13 @@ export default ({ plans }: { plans: Plan[] }) => {
             </ul>
             <button
               className="w-full rounded-lg bg-blue-500 py-2 font-bold text-white hover:bg-blue-600"
-              onClick={() => createSubscription({ priceID: plan.prices[0].id })}
+              onClick={() =>
+                createSubscription({
+                  priceID: plan.prices[0].id,
+                  onSignin: () => router.refresh(),
+                  onSubscribe: () => router.refresh(),
+                })
+              }
             >
               Subscribe
             </button>

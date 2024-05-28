@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut } from "@reflowhq/auth-next/client";
+import { modifySubscription } from "@reflowhq/auth-next/client";
 import { useRouter } from "next/navigation";
 
 export default function () {
@@ -8,10 +8,10 @@ export default function () {
 
   return (
     <button
-      onClick={() => signOut({ onSuccess: () => router.refresh() })}
+      onClick={() => modifySubscription({ onSuccess: () => router.refresh() })}
       className="ml-4 rounded border border-red-500 px-2 py-1 text-sm text-red-500 hover:text-red-600"
     >
-      Sign Out
+      Unsubscribe
     </button>
   );
 }

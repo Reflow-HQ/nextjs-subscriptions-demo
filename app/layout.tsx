@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The quickest way to add subscriptions in Next.js apps",
+  title: "The quickest way to add subscriptions in Next.js",
   description:
     "This is a Next.js 14 demo showcasing how easy it is to add user accounts and subscriptions using Reflow Auth.",
 };
