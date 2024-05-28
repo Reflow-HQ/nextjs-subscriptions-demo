@@ -2,7 +2,7 @@ This Next.js 14 demo showcases how how easy it is to add subscription functional
 
 The app features a ready-to-use Reflow integration, including a pricing table to display subscription options and a button accessible only to subscribers.
 
-You can view a live demo here - [TODO](TODO)
+You can view a live demo here - [https://reflow-nextjs-subscriptions-demo.vercel.app/](https://reflow-nextjs-subscriptions-demo.vercel.app/)
 
 # Getting Started
 
