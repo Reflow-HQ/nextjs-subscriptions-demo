@@ -1,17 +1,33 @@
 import Image from "next/image";
 import getAuth from "@/auth";
-import { fetchSubscriptionPlans } from "@/lib";
 import LogoutButton from "./components/LogoutButton";
 import UnsubscribeButton from "./components/UnsubscribeButton";
 import PricingTable from "./components/PricingTable";
 import GuardButton from "./components/GuardButton";
 
 export default async function Home() {
-  const plans = await fetchSubscriptionPlans();
-
   const auth = getAuth();
   const user = await auth.user();
   const subscription = await auth.subscription();
+
+  async function getPlans() {
+    "use server";
+
+    const apiURL =
+      process.env.REFLOW_TEST_MODE == "live"
+        ? "https://api.reflowhq.com/v2"
+        : "https://test-api.reflowhq.com/v2";
+
+    const requestUrl = `${apiURL}/projects/${process.env.REFLOW_PROJECT_ID}/plans/`;
+
+    const response = await fetch(requestUrl, {
+      cache: "force-cache",
+    });
+
+    return response.json();
+  }
+
+  const plans = (await getPlans()).data;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-6 lg:p-24">
