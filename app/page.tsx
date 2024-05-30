@@ -22,7 +22,7 @@ export default async function Home() {
 
     const response = await fetch(requestUrl, {
       cache: "force-cache",
-      next: { revalidate: 3000 },
+      next: { revalidate: 300 },
     });
 
     return response.json();
