@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Plan } from "@/lib";
 import { createSubscription } from "@reflowhq/auth-next/client";
 
 export default ({ plans }: { plans: Plan[] }) => {
@@ -52,3 +51,38 @@ export default ({ plans }: { plans: Plan[] }) => {
     </div>
   );
 };
+
+interface Plan {
+  object: "plan";
+  id: number;
+  name: string;
+  description: string;
+  prices: {
+    object: "plan_price";
+    id: number;
+    price: number;
+    price_formatted: string;
+    currency: {
+      code: string;
+      name: string;
+      zero_decimal: boolean;
+    };
+    billing_period: string;
+  }[];
+  parameters: Record<string, any>;
+  features: Record<string, any>;
+  trial_days: number;
+  subscription_setup_fee: null | {
+    name: string;
+    description: string;
+    price: number;
+    price_formatted: string;
+    currency: {
+      code: string;
+      name: string;
+      zero_decimal: boolean;
+    };
+  };
+  is_archived: boolean;
+  created: number;
+}
