@@ -9,7 +9,7 @@ export default function () {
   return (
     <button
       onClick={() => signOut({ onSuccess: () => router.refresh() })}
-      className="ml-4 rounded border border-red-500 px-2 py-1 text-sm text-red-500 hover:text-red-600"
+      className="ml-2 rounded border border-red-500 px-2 py-1 text-sm text-red-500 hover:text-red-600"
     >
       Sign Out
     </button>

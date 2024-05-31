@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 
-const ConditionalButton = ({
+const GuardButton = ({
   condition,
   children,
 }: {

@@ -102,7 +102,7 @@ export default async function Home() {
 
       <div className="relative flex w-full max-w-3xl flex-col items-center border bg-white px-4 py-16 text-left">
         <div className="flex flex-col gap-y-12">
-          <section className="flex flex-col items-center gap-y-4">
+          <section className="flex flex-col items-center gap-y-4 text-center">
             <h3 className="text-xl font-semibold">
               Auth & Subscription Status
             </h3>
