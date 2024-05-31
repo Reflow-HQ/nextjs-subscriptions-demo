@@ -27,4 +27,4 @@ const GuardButton = ({
   );
 };
 
-export default ConditionalButton;
+export default GuardButton;
